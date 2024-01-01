@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+  <title>REST Examination</title>
+
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  
+   <style>
+        .center-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 300px); /* Subtract header height and extra margin from viewport height */
+            margin: 0;
+            margin-bottom: 3px; 
+        }
+
+        img {
+            max-width: 100%; /* Ensure the image doesn't exceed its original size */
+        }
+    </style>
+</head>
+
+<body>
+
+ <!-- Include the header fragment -->
+  <div th:replace="fragments/header :: header"></div>
+  
+      <div class="center-wrapper">
+        <!-- Add the image using the URL in the src attribute -->
+        <img src="https://www.utem.edu.my/templates/yootheme/cache/5a/LogoUTeM-5a57aedf.webp" alt="UTeM Logo">
+   	 </div>
+
+  <div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
+    <h2 class="text-center">Welcome to Examination Attendance System</h2>
+    
+    <!-- Add your content here -->
+  </div>
+
+ <!-- Include the footer fragment -->
+  <div th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>

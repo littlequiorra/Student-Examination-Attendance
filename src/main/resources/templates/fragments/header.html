@@ -1,0 +1,50 @@
+<header th:fragment="header">
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" th:href="@{/main}">
+  		Examination Attendance System
+	</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="topNavbar">
+      <ul class="navbar-nav">
+      	
+      	<!-- A menu link to menu attendance dropdown -->
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Attendance
+                    </a>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <!-- Add more dropdown items here -->
+                        <a class="dropdown-item" th:href="@{/attendance/0}">Add Attendance</a>
+                        <a class="dropdown-item" th:href="@{/attendance/list}">Attendance List</a>
+                    </div>
+        </li>
+        
+        <!-- A menu link to menu examination dropdown -->
+           <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Examination
+                    </a>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <!-- Add more dropdown items here -->
+                        <a class="dropdown-item" th:href="@{/examination/0}">Add Examination</a>
+                        <a class="dropdown-item" th:href="@{/examination/list}">Manage Examination</a>
+                    </div>
+        </li>
+        
+        <!-- A menu link to menu venue dropdown -->
+           <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Venue
+                    </a>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <!-- Add more dropdown items here -->
+                        <a class="dropdown-item" th:href="@{/venue/0}">Add Venue</a>
+                        <a class="dropdown-item" th:href="@{/venue/list}">Manage Venue</a>
+                    </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

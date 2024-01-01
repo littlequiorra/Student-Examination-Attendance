@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+  <title>Student Form</title>
+
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+  <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+  <div th:replace="fragments/header :: header"></div>
+
+  <div class="container-fluid">
+    <h2 class="text-center" th:text="${pageTitle}">Attendance Form</h2>
+
+    <div class="my-3">
+      <form th:action="@{/attendance/save}" method="post" enctype="multipart/form-data" th:object="${attendance}"
+        style="max-width: 550px; margin: 0 auto">
+
+        <input type="hidden" th:field="*{attendId}" />
+        
+	 <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="stdId">Student Id</label>
+            <div class="col-sm-9">
+              <input type="text" th:field="*{student}" minlength="1" maxlength="10" class="form-control"
+                id="stdId" />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="examId">Exam ID</label>
+            <div class="col-sm-9">
+              <input type="text" th:field="*{examination}" minlength="1" maxlength="10" class="form-control"
+                id="examId" />
+            </div>
+          </div>
+
+          
+         <div class="form-group row">
+    <label class="col-sm-3 col-form-label" for="attendType">Type</label>
+    <div class="col-sm-9">
+        <select class="form-control" id="attendType" name="attendType">
+            <option value="QR CODE">QR CODE</option>
+            <option value="APPLICATION">APPLICATION</option>
+            <option value="MATRIC CARD">MATRIC CARD</option>
+            <option value="FINGERPRINT">FINGERPRINT</option>
+            <!-- Add more options here manually -->
+        </select>
+    </div>
+</div>
+
+ <input type="hidden" th:field="*{attendTime}" />
+          
+          
+          <script>
+  // Function to get the current date and time in the format yyyy-MM-ddTHH:mm
+  function getCurrentDateTime() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+
+    const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+    return currentDateTime;
+  }
+
+  // Set the current date and time to the input field
+  document.getElementById('attendTime').value = getCurrentDateTime();
+</script>
+          
+          <div class="text-center">
+            <input type="submit" value="Save" class="btn btn-primary btn-sm mr-2" />
+            <input type="button" value="Cancel" id="btnCancel" class="btn btn-secondary btn-sm" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div th:replace="fragments/footer :: footer"></div>
+
+ <script type="text/javascript">
+  $(document).ready(function () {  
+    $("#btnCancel").on("click", function () {
+ 
+      window.location = "[[@{/attendance/list}]]";
+    });
+  });
+</script>
+
+
+</body>
+
+</html>
